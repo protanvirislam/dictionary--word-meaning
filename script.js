@@ -14,38 +14,53 @@ function renderLottie() {
   });
 }
 
-renderLottie()
+renderLottie();
 //Fetch Data by Submitting Word
 
 async function FetchData(e) {
   //e.preventDefault()
   let word = input_value.value.trim().replaceAll(" ", "");
 
-  if (!word) {
-    throw new Error("Please fill the input with correct Word");
+  try {
+    if (!word) {
+      throw new Error("Please fill the input with correct Word");
+    }
+
+    let res = await fetch(
+      "https://api.dictionaryapi.dev/api/v2/entries/en/" + word
+    );
+
+    if (!res.ok) {
+      throw new Error("You Provided Wrong Word Which is not in dictionary :(");
+    }
+
+    let data = await res.json();
+    //Clear Input Value
+    input_value.value = "";
+
+    //Render Data Function Called on Each Data Submit
+    if (!data) {
+      throw new Error("No Data Available For this Word :(");
+    }
+    RenderData(data);
+  } catch (err) {
+    let html = `
+      <div class="alert alert-dismissible alert-danger">
+  
+  <strong>Oh snap!</strong> ${err.message} and try submitting again.
+</div>
+      `;
+    word_container.insertAdjacentHTML("beforebegin", html);
+
+   // emty dom of the result contaner
+
+    word_container.innerHTML = ''
+    
+  //Alert Remove After 5 sec
+    setTimeout(()=> {
+     document.querySelector(".alert-danger").remove()
+    }, 5000)
   }
-
-  let res = await fetch(
-    "https://api.dictionaryapi.dev/api/v2/entries/en/" + word
-  );
-
-  if (!res.ok) {
-    throw new Error("You Provided Wrong Word Which is not in dictionary :(");
-  }
-
-  let data = await res.json();
-  //Clear Input Value
-  input_value.value = "";
-
-  //Render Data Function Called on Each Data Submit
-  if (!data) {
-    throw new Error("No Data Available For this Word :(");
-  }
-  RenderData(data);
-
-  //   catch (err) {
-  //     console.log(err.message);
-  //   }
 }
 
 //Render Data  on Every Fetch

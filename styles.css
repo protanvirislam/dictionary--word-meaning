@@ -6,6 +6,7 @@
 }
 
 .main-container  {
+    
     position: absolute;
     width: 700px;
     min-height: 50dvh;
@@ -36,16 +37,30 @@
 
 .details-container {
     width: 100%;
-  
-    min-height: 300px;
    
+    height: 400px;
+    
+    overflow-y: auto;
     margin: auto;
     border-radius: 10px;
     overflow-y: auto;
+    svg {
+        width: 400px !important;
+        height: 400px !important;
+       
+    }
  li {
     list-style: none;
  }
     
+}
+
+@media only screen and (max-width: 700px) {
+    .details-container svg {
+        width: 200px !important;
+        height: 200px !important;
+        margin-left: 80px;
+    }
 }
 
 /* Target the whole scrollbar */
