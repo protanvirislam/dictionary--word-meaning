@@ -51,11 +51,8 @@ async function FetchData(e) {
 </div>
       `;
     word_container.insertAdjacentHTML("beforebegin", html);
-
-   // emty dom of the result contaner
-
-    word_container.innerHTML = ''
-    
+    //clear input field
+    input_value.value = "";
   //Alert Remove After 5 sec
     setTimeout(()=> {
      document.querySelector(".alert-danger").remove()
