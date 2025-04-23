@@ -56,9 +56,9 @@ async function FetchData(e) {
     //clear input field
     input_value.value = "";
   //Alert Remove After 5 sec
-    setTimeout(()=> {
-     document.querySelector(".alert-danger").remove()
-    }, 5000)
+    setTimeout( async ()=> {
+       document.querySelector(".alert-danger").remove()
+    }, 1500)
   }
 }
 
