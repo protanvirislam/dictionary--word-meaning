@@ -19,7 +19,9 @@ renderLottie();
 
 async function FetchData(e) {
   //e.preventDefault()
-  let word = input_value.value.trim().replaceAll(" ", "");
+  let word = input_value.value.trim()
+
+  console.log(word)
 
   try {
     if (!word) {
@@ -79,10 +81,10 @@ function RenderData(data) {
         <!-- Phonetic with voice -->
        <div class="word-voice">
         <audio controls >
-          <source src="${obj.phonetics[0].audio}" type="audio/mpeg">
+          <source src="${obj.phonetics.length === 0 ? "" : obj.phonetics[0].audio}" type="audio/mpeg">
           Your Browser Doesn't Support Audio Element
          </audio>
-         <div class="phonetic">${obj.phonetic ?? obj.word}</div>
+         <div class="phonetic">${obj.phonetic??obj.word}</div>
        </div>
 
        <!-- Meaning Of the Main Word -->
