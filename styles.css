@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-container  {
+    position: absolute;
+    width: 700px;
+    min-height: 50dvh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 128, 0, 0.377);
+    padding: 80px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+    .main-container{
+        width: 100%;
+    }
+}
+
+.title {
+    text-align:center;
+    font-family: "Metal Mania", system-ui;
+    color: white;
+   
+}
+
+.title i {
+    color: green;
+}
+
+.details-container {
+    width: 100%;
+  
+    min-height: 300px;
+   
+    margin: auto;
+    border-radius: 10px;
+    overflow-y: auto;
+ li {
+    list-style: none;
+ }
+    
+}
+
+/* Target the whole scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* vertical scrollbar */
+    height: 10px; /* horizontal scrollbar */
+  }
+  
+  /* Track (the background) */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  /* Handle (the draggable thumb) */
+  ::-webkit-scrollbar-thumb {
+    background: green;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+
+  .main-word {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 5px 15px;
+  }
+
+  .pos {
+    color: rgb(0, 0, 0);
+    background: #B0E854;
+    padding: 5px 15px;
+   border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+ 
+  }
+
+  .word-voice {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    margin: 20px 0px;
+    .phonetic {
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+        background: #B0E854;
+        padding: 5px;
+        display: inline-block;
+        border-radius: 10px;
+        margin-left: 20px;
+    }
+  }
+
+  .word-meaning {
+    width: 100%;
+   display: inline-block;
+
+   h4 {
+    display: inline-block;
+   }
+
+    p {
+        display: inline-block;
+        font-size: 20px;
+    }
+  }
+
+  .word-synonym {
+    display: flex;
+    flex-direction: column;
+    column-gap: 40px;
+  }
+
+  .word-synonym-list span{
+    font-weight: 700;
+    background: green;
+    padding: 5px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+    margin: 5px;
+    
+  }
+
+  .details-container li {
+    margin: 20px 0px;
+  }
